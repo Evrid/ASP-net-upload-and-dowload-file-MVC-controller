@@ -1,0 +1,73 @@
+﻿
+
+@model IEnumerable<FileModel>
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+
+            <th>
+                File name
+            </th>
+
+            <th>
+                Old File Name
+            </th>
+
+
+            <th>
+                File path
+            </th>
+
+
+            <th>
+                Download
+            </th>
+
+        </tr>
+
+
+    <tbody>
+            @foreach (var obj in Model)
+            {
+            <tr>
+                <td width="50%">
+                        @obj.ID
+                </td>
+
+                <td width="50%">
+                        @obj.FileName
+                </td>
+
+                <td width="50%">
+                        @obj.OriginalFileName
+                </td>
+
+                <td width="50%">
+                        @obj.FilePath
+                </td>
+
+                <td width="50%">
+
+                    <a asp-controller="Home" asp-action="Download" asp-route-id="@obj.ID">
+
+                        Download the file
+                    </a>
+                </td>
+
+            </tr>
+
+            }
+
+    </tbody>
+
+
+
+</table>
+
+<a asp-controller="Home" asp-action="FileUpload" class="btn btn-primary">
+    To file upload page
+</a>
